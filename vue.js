@@ -31,9 +31,20 @@ const App = {
       btnActive: [true, false, false, false],
       btnDone: [false, false, false, false],
       completeBtn: "Вперед",
+      showButton: true,
     };
   },
   methods: {
+    reset() {
+      this.showButton = false;
+      this.btnActive.fill(false);
+      this.btnDone[4] = true;
+      console.log(1);
+      // начать заного
+    },
+    nextOfFinish() {
+      // кнопка вперед или закончить
+    },
     setActive(idx) {
       if (idx >= 1 && idx <= 4) {
         this.btnActive.fill(false);
@@ -47,10 +58,7 @@ const App = {
         this.activeIndex = idx;
         this.completeStep;
       } else {
-        this.activeIndex = 0;
-        this.btnActive.fill(false);
-        this.btnDone.fill(false);
-        this.completeStep;
+        this.reset();
       }
       // когда нажимаем на определенный шаг
     },

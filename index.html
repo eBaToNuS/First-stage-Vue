@@ -53,6 +53,7 @@
             </button>
             <button
               class="btn primary"
+              v-show="showButton"
               @click.prevent="setActive(activeIndex+1)"
             >
               {{completeBtn}}
