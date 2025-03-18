@@ -52,6 +52,7 @@ const App = {
         this.againBtn = "Назад";
         this.btnActive.fill(false);
         this.btnDone.fill(false);
+        this.completeBtn = "Вперед";
         this.showButton = true;
         idx = 0;
         this.activeIndex = 0;
