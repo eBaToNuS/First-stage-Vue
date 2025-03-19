@@ -209,6 +209,7 @@ h3 {
 
 .steps-content {
   margin-bottom: 1rem;
+  min-height: 78px;
 }
 
 .steps-item.active span,
@@ -219,4 +220,8 @@ h3 {
 .steps-item.active span {
   font-weight: bold;
   color: #ffffff;
+}
+
+[v-cloak] {
+  display: none;
 }

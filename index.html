@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Основы Vue</title>
     <link rel="stylesheet" href="theme.css" />
+    <style>
+      [v-cloak] {
+        display: none !important;
+      }
+    </style>
   </head>
   <body>
-    <div class="container" id="app">
+    <div class="container" id="app" v-cloаk>
       <div class="card">
         <h1>{{steps[activeIndex].title}}</h1>
 
@@ -49,7 +54,7 @@
               @click.prevent="setActive(activeIndex-1)"
               :class="{danger:offBtn}"
             >
-              Назад
+              {{againBtn}}
             </button>
             <button
               class="btn primary"

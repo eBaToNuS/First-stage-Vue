@@ -9,7 +9,7 @@ const App = {
       steps: [
         {
           title: "Основы",
-          text: "В блоке вы познакомитесь со всеми основами Vue.js на практике. На протяжении блока мы напишем реактивное приложение, в процессе разработки которого разберем вся базу фреймворка.",
+          text: "В блоке вы познакомитесь со всеми основами Vue.js на практике. На протяжении блока мы напишем реактивное приложение, в процессе разработки которого разберем всю базу фреймворка.",
         },
         {
           title: "Компоненты",
@@ -31,6 +31,7 @@ const App = {
       btnActive: [true, false, false, false],
       btnDone: [false, false, false, false],
       completeBtn: "Вперед",
+      againBtn: "Назад",
       showButton: true,
     };
   },
@@ -39,25 +40,31 @@ const App = {
       this.showButton = false;
       this.btnActive.fill(false);
       this.btnDone[4] = true;
-      console.log(1);
+      this.againBtn = "Начать заново";
       // начать заного
     },
     nextOfFinish() {
       // кнопка вперед или закончить
     },
     setActive(idx) {
+      if (this.againBtn == "Начать заново") {
+        this.againBtn = "Назад";
+        this.btnActive.fill(false);
+        this.btnDone.fill(false);
+        this.completeBtn = "Вперед";
+        this.showButton = true;
+        idx = 0;
+        this.activeIndex = 0;
+      }
       if (idx >= 1 && idx <= 4) {
         this.btnActive.fill(false);
         this.btnDone.fill(false);
         this.btnActive[idx] = true;
-
-        if (idx !== 1) {
-          this.btnDone.fill(true, 0, idx);
-        }
+        this.btnDone.fill(true, 0, idx);
         this.offBtn;
         this.activeIndex = idx;
         this.completeStep;
-      } else {
+      } else if (idx > 4) {
         this.reset();
       }
       // когда нажимаем на определенный шаг
@@ -71,6 +78,7 @@ const App = {
       if (this.activeIndex == 4) {
         this.completeBtn = "Завершить";
       } else this.completeBtn = "Вперед";
+      this.showButton = true;
       return this.activeIndex === 4;
     },
     // тут стоит определить несколько свойств:
